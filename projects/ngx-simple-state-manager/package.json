@@ -1,6 +1,10 @@
 {
   "name": "ngx-simple-state-manager",
-  "version": "1.0.1",
+  "version": "1.0.2",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/notnikola1/ngx-simple-state-manager.git"
+  },
   "peerDependencies": {
     "@angular/common": "^18.2.0",
     "@angular/core": "^18.2.0"
