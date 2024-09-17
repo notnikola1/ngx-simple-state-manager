@@ -1,6 +1,6 @@
 {
   "name": "ngx-simple-state-manager",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "keywords": ["angular", "state", "manager", "simple", "easy", "observable", "module"],
   "repository": {
     "type": "git",
