@@ -11,6 +11,8 @@
     "@angular/core": "^18.2.0"
   },
   "dependencies": {
+    "deep-object-diff": "^1.1.9",
+    "deepmerge-ts": "^7.1.0",
     "tslib": "^2.3.0"
   },
   "sideEffects": false
