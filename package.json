@@ -1,9 +1,9 @@
 {
-  "name": "ngx-easy-state-manager",
-  "version": "1.0.0",
+  "name": "ngx-simple-state-manager",
+  "version": "1.0.1",
   "repository": {
     "type": "git",
-    "url": "https://github.com/notnikola1/ngx-easy-state-manager.git"
+    "url": "https://github.com/notnikola1/ngx-simple-state-manager.git"
   },
   "scripts": {
     "ng": "ng",

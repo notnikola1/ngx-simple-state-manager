@@ -5,21 +5,21 @@
   "projects": {
     "ngx-easy-state-manager": {
       "projectType": "library",
-      "root": "projects/ngx-easy-state-manager",
-      "sourceRoot": "projects/ngx-easy-state-manager/src",
+      "root": "projects/ngx-simple-state-manager",
+      "sourceRoot": "projects/ngx-simple-state-manager/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/ngx-easy-state-manager/ng-package.json"
+            "project": "projects/ngx-simple-state-manager/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/ngx-easy-state-manager/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ngx-simple-state-manager/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/ngx-easy-state-manager/tsconfig.lib.json"
+              "tsConfig": "projects/ngx-simple-state-manager/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -27,7 +27,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/ngx-easy-state-manager/tsconfig.spec.json",
+            "tsConfig": "projects/ngx-simple-state-manager/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"

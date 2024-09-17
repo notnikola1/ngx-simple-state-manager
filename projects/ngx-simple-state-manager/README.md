@@ -146,7 +146,7 @@ someMethod(){
 - Q : There are other state management libs? Why this?
 - A : I found them to be too heavy handed in their approach and too complex to use for what they are supposed to be used.
 - ---
-- Q : I think that <insert lib here\> is better! 
+- Q : I think that <insert lib here\> is better!
 - A : Great! Go, use it, with my blessing, more power to you!
 - ----
 - Q : Will there be something like this for React?

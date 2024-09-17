@@ -9,7 +9,7 @@ type DeepPartial<T> = {
 };
 
 @Injectable()
-export class NgxESM {
+export class NgxSSM {
 	appState       = {}
 	stateObserver$ = new Subject()
 	

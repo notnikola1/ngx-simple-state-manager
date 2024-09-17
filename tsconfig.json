@@ -12,7 +12,7 @@
     "skipLibCheck": true,
     "paths": {
       "ngx-easy-state-manager": [
-        "./dist/ngx-easy-state-manager"
+        "./dist/ngx-simple-state-manager"
       ]
     },
     "esModuleInterop": true,
