@@ -11,7 +11,7 @@
     "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "paths": {
-      "ngx-easy-state-manager": [
+      "ngx-simple-state-manager": [
         "./dist/ngx-simple-state-manager"
       ]
     },

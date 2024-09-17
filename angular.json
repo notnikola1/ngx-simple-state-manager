@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-easy-state-manager": {
+    "ngx-simple-state-manager": {
       "projectType": "library",
       "root": "projects/ngx-simple-state-manager",
       "sourceRoot": "projects/ngx-simple-state-manager/src",
