@@ -18,9 +18,6 @@ export class NgxSSM {
 		const uuid          = self.crypto.randomUUID();
 		instance.__ssm_uuid = uuid;
 		let id              = uuid
-		if ( this.appState[id] && this.appState[id].comp === instance ) {
-			throw Error( 'already registered' )
-		}
 		this.appState[id] =
 			{
 				id:    id,
@@ -33,10 +30,6 @@ export class NgxSSM {
 	setState<T>( instance, newState: DeepPartial<T> ) {
 		const id           = this.getId( instance );
 		const name         = this.getName( instance );
-		const currentEntry = this.appState[id];
-		if ( !currentEntry && currentEntry.comp !== instance ) {
-			throw Error( 'no instance' )
-		}
 		const before            = Object.assign( {}, this.appState[id].state );
 		const result            = deepmerge( this.appState[id].state as T, newState as T )
 		this.appState[id].state = result;
