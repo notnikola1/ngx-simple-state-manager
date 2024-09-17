@@ -10,7 +10,7 @@ Component-bound simple to handle state managment that is accessible application 
 
 ## How to use
 
-### Import NgxEsmModule into app.module or into any of your modules.
+### Import NgxSsmModule into app.module or into any of your modules.
 ```
 
 
@@ -23,7 +23,7 @@ imports: [
 ]
 [...]
 ```
-### Define the shape of the component state object and import the NgxEsm service into your component.
+### Define the shape of the component state object and import the NgxSsm service into your component.
 ```
 
 
@@ -39,7 +39,7 @@ interface IComponentState {
 export class MyComponent {
     
     constructor(
-    private ssm: NgSSM
+    private ssm: NgxSSM
     ) {
         this.ssm.registerComponent<IComponentState>( this, {
 			foo: {
