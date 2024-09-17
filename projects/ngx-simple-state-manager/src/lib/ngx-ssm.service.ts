@@ -16,7 +16,7 @@ export class NgxSSM {
 	registerComponent<T>( instance: any, initialState: T ): void {
 		const name          = this.getName( instance );
 		const uuid          = self.crypto.randomUUID();
-		instance.__esm_uuid = uuid;
+		instance.__ssm_uuid = uuid;
 		let id              = uuid
 		if ( this.appState[id] && this.appState[id].comp === instance ) {
 			throw Error( 'already registered' )
@@ -53,7 +53,7 @@ export class NgxSSM {
 	}
 	
 	getState( instance: object ) {
-		const name = instance.__esm_uuid;
+		const name = instance.__ssm_uuid;
 		return this.appState[name].state;
 	}
 	
@@ -62,7 +62,7 @@ export class NgxSSM {
 	}
 	
 	private getId( comp ) {
-		return comp.__esm_uuid
+		return comp.__ssm_uuid
 	}
 	
 	private getName( comp ) {

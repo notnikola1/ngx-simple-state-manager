@@ -10,7 +10,7 @@ Component-bound simple to handle state managment that is accessible application 
 
 ## How to use
 
-### Import NgxEsmModule into app.module or into any of your modules.
+### Import NgxSsmModule into app.module or into any of your modules.
 ```
 
 
@@ -122,7 +122,7 @@ someMethod(){
     {
     component: instance, <- "this"
     name:      name, <- component name, if any (instance.name)
-    id:        id, <- generated on registration, instance.__esm_uuid, different for every instance and component
+    id:        id, <- generated on registration, instance.__ssm_uuid, different for every instance and component
     oldState:  before,
     newState:  result,
     diff:      diff
@@ -155,11 +155,11 @@ someMethod(){
 - Q : Will there be support for component specific state change observers?
 - A : Possibly, at a later date.
 - ---
-- Q : How do I know whats my component __esm_uuid?
-- A : After calling the "register" method, that specific component instance will have "__esm_uuid" bound to it, just call "this.__esm_uuid" to get it.
+- Q : How do I know whats my component __ssm_uuid?
+- A : After calling the "register" method, that specific component instance will have "__ssm_uuid" bound to it, just call "this.__ssm_uuid" to get it.
 - ---
 - Q : I want to do a specific thing in my component only when something changes in another specific component, how do i?
-- A : Use __esm_uuid to filter what you need.
+- A : Use __ssm_uuid to filter what you need.
 
 ## License
 
