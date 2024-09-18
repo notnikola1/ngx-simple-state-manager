@@ -3,5 +3,9 @@
   "dest": "../../dist/ngx-simple-state-manager",
   "lib": {
     "entryFile": "src/public-api.ts"
-  }
+  },
+  "allowedNonPeerDependencies": [
+    "deep-object-diff",
+    "deepmerge-ts"
+  ]
 }

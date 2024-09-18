@@ -1,6 +1,6 @@
 {
   "name": "ngx-simple-state-manager",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "keywords": ["angular", "state", "manager", "simple", "easy", "observable", "module"],
   "repository": {
     "type": "git",
@@ -12,6 +12,10 @@
     "deep-object-diff": "^1.1.9",
     "deepmerge-ts": "^7.1.0",
     "tslib": "^2.3.0"
+  },
+  "dependencies": {
+    "deep-object-diff": "^1.1.9",
+    "deepmerge-ts": "^7.1.0"
   },
   "sideEffects": false
 }
