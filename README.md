@@ -142,7 +142,7 @@ export class YayComponent implements AfterViewInit {
     public ngAfterViewInit(): void {
 		const someCompObs = this.stateService.getComponentObserverByName( "MyAuthComponentName" );
 		// ^ this is why the targeted component must have a name 
-		authState.subscribe( value => {
+		someCompObs.subscribe( value => {
 			this.currentUser = value.diff.currentUser; //or whatever else you need.
 		} )
 	}
