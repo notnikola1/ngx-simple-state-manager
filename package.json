@@ -1,6 +1,6 @@
 {
   "name": "ngx-simple-state-manager",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "keywords": [
     "angular",
     "state",
@@ -15,6 +15,7 @@
     "url": "https://github.com/notnikola1/ngx-simple-state-manager.git"
   },
   "scripts": {
+    "build:pkg": "ng build ngx-simple-state-manager",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
