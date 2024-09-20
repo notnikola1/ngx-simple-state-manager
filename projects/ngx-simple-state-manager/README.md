@@ -23,7 +23,7 @@ imports: [
 ]
 [...]
 ```
-### Define the shape of the component state object and import the NgxEsm service into your component.
+### Define the shape of the component state object and import the NgxSSM service into your component.
 ```
 
 
@@ -92,6 +92,64 @@ someMethod(){
 [...]
 ```
 
+### Observe state changes of a single component
+
+- Create a separate observer for a single component and pass option to disable global state change firing
+
+```
+[...]
+const initialState = {...}
+const options = {
+    componentIdentifier: string,
+    globalFiring: boolean
+}
+
+this.stateService.registerComponent<IComponentStateAuth>( this, initialState,
+			{
+				componentIdentifier: 'MyComponent',
+				globalFiring:        false <- enable/disable global firing
+			} );
+[...]
+```
+
+### Listening to COMPONENT state changes
+
+- Note - due to instantiation/loading timings listening for component specific changes is available after all constructors have passed (assuming  the targeted component has it registration method called in the constructor).
+
+Point being - you cannot subscribe to component specific changes before the component is instantiated and registered. Natürlich.
+
+- Note 2 - If you want to listen for specific component changes, the component that you are listening to MUST have a name.
+
+-> MyAuthComponent.name = 'MyAuthComponentName'
+
+```
+export class MyAuthComponent {
+ name = 'MyAuthComponentName'
+ constructor(
+    private stateService: NgxSSM
+ ){
+    this.stateService.register(...)
+ }
+ [...]
+}
+------------------------------
+[...]
+export class YayComponent implements AfterViewInit {
+    constructor(
+        private stateService: NgxSSM
+    ){}
+[...]
+    public ngAfterViewInit(): void {
+		const someCompObs = this.stateService.getComponentObserverByName( "MyAuthComponentName" );
+		// ^ this is why the targeted component must have a name 
+		authState.subscribe( value => {
+			this.currentUser = value.diff.currentUser; //or whatever else you need.
+		} )
+	}
+[...]
+}
+```
+
 ### Get full APPLICATION state
 
 ```
@@ -107,13 +165,38 @@ someMethod(){
 
 ## API docs
 
+```
+interface IComponentOptions {
+	componentIdentifier: string, <- component name
+	globalFiring: boolean <- fire ONLY the components state change observer, and NOT the global one
+}
+
+- note - globalFiring = true -> fires BOTH the component AND global observers.
+If you want to use specific comp observer - recommended value is false
+
+interface IComponentStateInstance<T> {
+	id: string,
+	name: string,
+	state: T,
+	comp: any
+}
+```
+
 `` Glossary -> T = IComponentState``
 
-`` registerComponent<T>(this, initialStateObject<T>) : void  ``
+`` Glossary -> R = IComponentOptions``
+
+`` registerComponent<T>(this, initialStateObject<T>, options?: IComponentOptions) : void  ``
 
 `` setState<T>(this, newState<Partial<T>>) : void <- as seen above, you can update only a part``
 
-`` getState(this) : <T> ``
+`` getComponentStateByName(name: string): IComponentState``
+
+`` getComponentObserverByName(name: string): Observable<value> | <- typed at the end of paragraph ``
+
+`` getComponentBySSM_UUID(id: string): IComponentState ``
+
+`` getState(this) : IComponentState ``
 
 `` getApplicationState() <- entire application state, shape depends on your components ``
 
@@ -153,7 +236,8 @@ someMethod(){
 - A : No.
 - ---
 - Q : Will there be support for component specific state change observers?
-- A : Possibly, at a later date.
+- ~~A : Possibly, at a later date.~~
+- A : Implemented
 - ---
 - Q : How do I know whats my component __ssm_uuid?
 - A : After calling the "register" method, that specific component instance will have "__ssm_uuid" bound to it, just call "this.__ssm_uuid" to get it.

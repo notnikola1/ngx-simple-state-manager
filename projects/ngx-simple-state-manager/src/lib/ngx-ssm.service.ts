@@ -9,7 +9,6 @@ type DeepPartial<T> = {
 };
 
 interface IComponentOptions {
-	makeObserver: true,
 	componentIdentifier: string,
 	globalFiring: boolean
 }
@@ -41,7 +40,7 @@ export class NgxSSM {
 			comp:  instance
 		}
 		
-		if ( options?.makeObserver ) {
+		if ( options ) {
 			this.attachComponentObserver<T>( instance, initialState, options, id );
 		}
 		
@@ -79,7 +78,7 @@ export class NgxSSM {
 		}
 		
 		let fireGlobal = true;
-		if ( !componentObserver.options.globalFiring ) {
+		if ( componentObserver && !componentObserver.options.globalFiring ) {
 			fireGlobal = false;
 			componentObserver.obs.next( {
 				component: instance,
